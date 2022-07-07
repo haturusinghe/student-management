@@ -2,6 +2,8 @@ package cs85.studentmanagement.student;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -13,23 +15,23 @@ public class Student {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @NotBlank
+    @Column(unique = true)
     private String studentNumber;
+
+    @NotBlank
     private String firstName;
+
+    @NotBlank
     private String lastName;
 
+    @Email
     private String email;
+
     private LocalDate dob;
 
     @Transient
     private Integer age;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Student() {
     }
@@ -42,6 +44,18 @@ public class Student {
         this.dob = dob;
     }
 
+    //Customer Getter for Age
+    public Integer getAge() {
+        return Period.between(this.dob, LocalDate.now()).getYears();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getStudentNumber() {
         return studentNumber;
@@ -81,10 +95,6 @@ public class Student {
 
     public void setDob(LocalDate dob) {
         this.dob = dob;
-    }
-
-    public Integer getAge() {
-        return Period.between(this.dob, LocalDate.now()).getYears();
     }
 
     public void setAge(Integer age) {
