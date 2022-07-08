@@ -16,11 +16,11 @@ public class StudentConfig {
         return args -> {
             repository.saveAll(
                     List.of(
-                            new Student("CS/2018/015", "Jon", "Doe", "jon@mail.com", LocalDate.of(2000, Month.APRIL,11)),
-                            new Student("CS/2018/016", "Bon", "Joe", "bnn@mail.com", LocalDate.of(1999, Month.JUNE,21)),
-                            new Student("CS/2018/017", "Xon", "Was", "asew@mail.com", LocalDate.of(1998, Month.JUNE,1)),
-                            new Student("CS/2018/025", "Ann", "Gaw", "sagasg@mail.com", LocalDate.of(1990, Month.JULY,10)),
-                            new Student("CS/2018/036", "Wimm", "Gatt", "attt3123@mail.com", LocalDate.of(1980, Month.JUNE,20))
+                            new Student("CS/2018/015", "Jon Doe", "jon@mail.com", LocalDate.of(2000, Month.APRIL,11)),
+                            new Student("CS/2018/016", "Bon Joe", "bnn@mail.com", LocalDate.of(1999, Month.JUNE,21)),
+                            new Student("CS/2018/017", "Xon Was", "asew@mail.com", LocalDate.of(1998, Month.JUNE,1)),
+                            new Student("CS/2018/025", "Ann Gaw", "sagasg@mail.com", LocalDate.of(1990, Month.JULY,10)),
+                            new Student("CS/2018/036", "Wimm Gatt", "attt3123@mail.com", LocalDate.of(1980, Month.JUNE,20))
                     )
 
             );
