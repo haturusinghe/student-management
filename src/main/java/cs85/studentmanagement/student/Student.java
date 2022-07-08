@@ -20,15 +20,14 @@ public class Student {
     private String studentNumber;
 
     @NotBlank
-    private String firstName;
-
-    @NotBlank
-    private String lastName;
+    private String name;
 
     @Email
     private String email;
 
     private LocalDate dob;
+
+    private String city;
 
     @Transient
     private Integer age;
@@ -36,12 +35,19 @@ public class Student {
     public Student() {
     }
 
-    public Student(String studentNumber, String firstName, String lastName, String email, LocalDate dob) {
+    public Student(String studentNumber, String name, String email, LocalDate dob) {
         this.studentNumber = studentNumber;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.name = name;
         this.email = email;
         this.dob = dob;
+    }
+
+    public Student(String studentNumber, String name, String email, LocalDate dob, String city) {
+        this.studentNumber = studentNumber;
+        this.name = name;
+        this.email = email;
+        this.dob = dob;
+        this.city = city;
     }
 
     //Customer Getter for Age
@@ -65,20 +71,12 @@ public class Student {
         this.studentNumber = studentNumber;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -106,11 +104,18 @@ public class Student {
         return "Student{" +
                 "id=" + id +
                 ", studentNumber='" + studentNumber + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", firstName='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", dob=" + dob +
                 ", age=" + age +
                 '}';
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }
