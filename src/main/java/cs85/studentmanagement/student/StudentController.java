@@ -60,8 +60,9 @@ public class StudentController {
 
     //Add New Student
     @PostMapping
-    public void addStudent(@Valid @RequestBody Student student){
-        studentService.addNewStudent(student);
+    public ResponseEntity<Student> addStudent(@Valid @RequestBody Student student){
+        return ResponseEntity.ok(studentService.addNewStudent(student));
+
     }
 
     //Update a Students Email

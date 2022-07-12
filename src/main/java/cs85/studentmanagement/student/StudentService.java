@@ -21,8 +21,8 @@ public class StudentService {
     }
 
     //Add new student
-    public void addNewStudent(Student student) {
-        studentRepository.save(student);
+    public Student addNewStudent(Student student) {
+        return studentRepository.save(student);
     }
 
     //Get list of student with the given name
