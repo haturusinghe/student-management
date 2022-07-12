@@ -20,7 +20,7 @@ public class StudentConfig {
                             new Student("CS/2018/016", "Bon Joe", "bnn@mail.com", LocalDate.of(1999, Month.JUNE,21)),
                             new Student("CS/2018/017", "Xon Was", "asew@mail.com", LocalDate.of(1998, Month.JUNE,1)),
                             new Student("CS/2018/025", "Ann Gaw", "sagasg@mail.com", LocalDate.of(1990, Month.JULY,10)),
-                            new Student("CS/2018/028", "Ann Gaw", "sagasg@mail.com", LocalDate.of(1990, Month.JULY,10),"Kandu"),
+                            new Student("CS/2018/028", "Ann Gaw", "sagas1g@mail.com", LocalDate.of(1990, Month.JULY,10),"Kandu"),
                             new Student("CS/2018/036", "Wimm Gatt", "attt3123@mail.com", LocalDate.of(1980, Month.JUNE,20))
                     )
 
