@@ -48,4 +48,10 @@ public class StudentViewController {
         studentService.addNewStudent(student);
         return "redirect:/manage/student-list";
     }
+
+    @GetMapping("/student/delete/{id}")
+    public String deleteStudent(@PathVariable Long id) {
+        studentService.deleteStudent(id);
+        return "redirect:/manage/student-list";
+    }
 }
