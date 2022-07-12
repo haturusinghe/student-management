@@ -107,9 +107,10 @@ public class Student {
         return "Student{" +
                 "id=" + id +
                 ", studentNumber='" + studentNumber + '\'' +
-                ", firstName='" + name + '\'' +
+                ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", dob=" + dob +
+                ", city='" + city + '\'' +
                 ", age=" + age +
                 '}';
     }
