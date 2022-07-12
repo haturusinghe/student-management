@@ -9,10 +9,12 @@
 <table >
     <thead>
     <tr>
-        <th> Student Number</th>
-        <th> Name</th>
+        <th> Student Number </th>
+        <th> Name </th>
         <th> Email </th>
+        <th> Date Of Birth </th>
         <th> Age </th>
+        <th> City </th>
     </tr>
     </thead>
 
@@ -21,10 +23,15 @@
         <td th:text = "${student.studentNumber}"></td>
         <td th:text = "${student.name}"></td>
         <td th:text = "${student.email}"></td>
+        <td th:text = "${student.dob}"></td>
         <td th:text = "${student.age}"></td>
+        <td th:text = "${student.city}"></td>
     </tr>
     </tbody>
 
 </table>
+<br>
+<a th:href = "@{/manage/add}" > Add New Student</a>
+
 </body>
 </html>

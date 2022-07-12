@@ -1,6 +1,8 @@
 package cs85.studentmanagement.student;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -25,6 +27,7 @@ public class Student {
     @Email
     private String email;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dob;
 
     private String city;
