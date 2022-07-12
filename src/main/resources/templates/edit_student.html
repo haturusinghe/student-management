@@ -9,6 +9,8 @@
 </head>
 <body>
 <div class="h-screen flex flex-col items-center justify-center">
+    <h2 class="font-medium leading-tight text-4xl mt-0 mb-2 text-blue-600">Update Student</h2>
+    <br>
     <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
         <form th:action="@{/manage/student/{id} (id=${student.id})}" th:object="${student}" method="POST">
             <div class="form-group mb-6">
