@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -19,12 +20,16 @@ public class Student {
 
     @NotBlank
     @Column(unique = true)
+    @Pattern(regexp = "^[A-Z]{2}\\/2[0-9]{3}\\/[0-9]{3}$",
+            message = "Student Number must be in correct format")
     private String studentNumber;
 
     @NotBlank
+    @Pattern(regexp="^[A-Z a-z]*$",message = "Must only contain Characters")
     private String name;
 
     @Email
+    @Column(unique = true)
     private String email;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
