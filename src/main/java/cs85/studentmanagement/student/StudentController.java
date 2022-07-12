@@ -65,7 +65,7 @@ public class StudentController {
     }
 
     //Update a Students Email
-    @PutMapping(path = "{id}",params = "email") //#TODO : Not Working Check!
+    @PutMapping(path = "{id}",params = "email")
     public ResponseEntity<String> updateStudent(@PathVariable("id") Long id,@RequestParam(name = "email",required = true) String email){
         Boolean res = studentService.updateStudentEmail(id, email);
         if(!res){
