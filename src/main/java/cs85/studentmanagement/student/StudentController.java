@@ -13,6 +13,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping(path = "api/student")
 public class StudentController {
+
     private final StudentService studentService;
 
     @Autowired
@@ -25,6 +26,18 @@ public class StudentController {
     public ResponseEntity<List<Student>> getStudents(){
         return new ResponseEntity<>(studentService.getStudent(), HttpStatus.OK);
 
+    }
+
+    //Find Student By Id
+    @GetMapping(path = "{id}")
+    public ResponseEntity<Student> getStudent(@PathVariable Long id){
+        Optional<Student> result = studentService.getStudent(id);
+
+        if(result.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(result.get());
     }
 
     //Find Student By Name
@@ -51,17 +64,22 @@ public class StudentController {
         studentService.addNewStudent(student);
     }
 
+    //Update a Students Email
+    @PutMapping(path = "{id}",params = "email") //#TODO : Not Working Check!
+    public ResponseEntity<String> updateStudent(@PathVariable("id") Long id,@RequestParam(name = "email",required = true) String email){
+        Boolean res = studentService.updateStudentEmail(id, email);
+        if(!res){
+            ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok("Updated Email");
+    }
 
-    /*
-
-     //Delete an Existing Student
+    //Delete an Existing Student
     @DeleteMapping(path = "{studentId}")
-    public void deleteStudent(@PathVariable("studentId") Long id ){
+    public void deleteStudent(@PathVariable("studentId") Long id ) {
         studentService.deleteStudent(id);
+    }
 
-    @PutMapping(path = "{studentId}")
-    public void updateStudent(@PathVariable("studentId") Long id,@RequestParam(required = false) String name,@RequestParam(required = false) String email){
-        studentService.updateStudent(id,name,email);
 
-    }*/
+
 }

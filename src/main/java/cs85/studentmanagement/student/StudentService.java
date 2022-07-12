@@ -30,7 +30,30 @@ public class StudentService {
         return studentRepository.findByNameContains(name);
     }
 
+    //Get list of student with the given id
+    public Optional<Student> getStudent(Long id) {
+        return studentRepository.findById(id);
+    }
+
+    //Get One student details for given Student Number
     public Optional<Student> findStudentByStudentNumber(String student_number) {
        return studentRepository.findOneByStudentNumber(student_number);
     }
+
+    public void deleteStudent(Long id) {
+        studentRepository.deleteById(id);
+    }
+
+    public Boolean updateStudentEmail(Long id, String email) {
+        boolean exists = studentRepository.existsById(id);
+        if(!exists){
+            return false;
+        }
+        Student student = studentRepository.findById(id).get();
+        student.setEmail(email);
+        studentRepository.save(student);
+        return true;
+    }
+
+
 }
